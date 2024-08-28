@@ -1,0 +1,100 @@
+package arvoreb;
+
+public class TriNode {
+	
+	private String data;
+	private TriNode parent;
+	private TriNode left;
+	private TriNode right;
+	
+	
+	public TriNode(String data, TriNode parent) {
+		
+		this.data = data;
+		this.parent = parent;
+		this.left = null;
+		this.right = null;
+		
+	}
+	
+	
+	
+	
+	public boolean isRoot(TriNode root) {
+		if(root.getLevel() == 0) {
+			return true;
+			
+		}
+		return false;
+		
+	}
+	
+	public boolean isLeaf(TriNode leaf) {
+		
+		if (leaf.getLeft() == null && leaf.getRight() == null) {
+			return true;
+		}
+		return false;
+		
+	}
+	
+	public int getDegree(TriNode galho) {
+		if(isLeaf(galho)) {
+			return 0;
+		}
+		else if(galho.getLeft() == null) {
+			return 1;
+		}
+		else if(galho.getRight() == null) {
+			return 1;
+		}
+		else {
+			return 2;
+		}
+		
+	}
+	
+	public int getLevel(TriNode galho) {
+		
+		
+	}
+	
+	public int getHeight(TriNode galho) {
+		
+		
+	}
+	public String getData() {
+		return data;
+	}
+	
+	public void setData(String data) {
+		this.data = data;
+	}
+	
+	public TriNode getParent() {
+		return parent;
+	}
+	
+	public void setParent(TriNode parent) {
+		this.parent = parent;
+	}
+	
+	public TriNode getLeft() {
+		return left;
+	}
+	
+	public void setLeft(TriNode left) {
+		this.left = left;
+	}
+	
+	public TriNode getRight() {
+		return right;
+	}
+	
+	public void setRight(TriNode right) {
+		this.right = right;
+	}
+
+
+
+}
