@@ -1,14 +1,14 @@
-package arvoreb;
+package aula04;
 
-public class TriNode {
+public class NodeTree {
 	
 	private String data;
-	private TriNode parent;
-	private TriNode left;
-	private TriNode right;
+	private NodeTree parent;
+	private NodeTree left;
+	private NodeTree right;
 	
 	
-	public TriNode(String data, TriNode parent) {
+	public NodeTree(String data, NodeTree parent) {
 		
 		this.data = data;
 		this.parent = parent;
@@ -20,16 +20,12 @@ public class TriNode {
 	
 	
 	
-	public boolean isRoot(TriNode root) {
-		if(root.getLevel() == 0) {
-			return true;
-			
-		}
-		return false;
+	public boolean isRoot(NodeTree root) {
+		return parent == null;
 		
 	}
 	
-	public boolean isLeaf(TriNode leaf) {
+	public boolean isLeaf(NodeTree leaf) {
 		
 		if (leaf.getLeft() == null && leaf.getRight() == null) {
 			return true;
@@ -38,7 +34,7 @@ public class TriNode {
 		
 	}
 	
-	public int getDegree(TriNode galho) {
+	public int getDegree(NodeTree galho) {
 		if(isLeaf(galho)) {
 			return 0;
 		}
@@ -54,12 +50,21 @@ public class TriNode {
 		
 	}
 	
-	public int getLevel(TriNode galho) {
+	public int getLevel(NodeTree galho) {
+		if(galho.getParent() == null) {
+			return 0;
+		}
+		
+		return getLevel(galho.getParent()) + 1;
 		
 		
 	}
 	
-	public int getHeight(TriNode galho) {
+	public int getHeight(NodeTree galho) {
+		if(isLeaf(galho) == true) {
+			return 0;
+		}
+		
 		
 		
 	}
@@ -71,30 +76,28 @@ public class TriNode {
 		this.data = data;
 	}
 	
-	public TriNode getParent() {
+	public NodeTree getParent() {
 		return parent;
 	}
 	
-	public void setParent(TriNode parent) {
+	public void setParent(NodeTree parent) {
 		this.parent = parent;
 	}
 	
-	public TriNode getLeft() {
+	public NodeTree getLeft() {
 		return left;
 	}
 	
-	public void setLeft(TriNode left) {
+	public void setLeft(NodeTree left) {
 		this.left = left;
 	}
 	
-	public TriNode getRight() {
+	public NodeTree getRight() {
 		return right;
 	}
 	
-	public void setRight(TriNode right) {
+	public void setRight(NodeTree right) {
 		this.right = right;
 	}
-
-
 
 }
